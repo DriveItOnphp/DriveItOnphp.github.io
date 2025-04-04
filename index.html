@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+this is my code now, can you make any changes big and small to improve the user experience: <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,7 +6,7 @@
   <title>FYP Data Hosting</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       background: #f5f7fa;
       color: #333;
@@ -16,20 +16,14 @@
       max-width: 960px;
       margin: 80px auto;
       padding: 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    h1, h2, h3 {
+    h1 {
       text-align: center;
       color: #2a2a2a;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      text-align: center;
     }
 
     table {
@@ -50,20 +44,6 @@
 
     figure {
       margin: 30px 0;
-      text-align: center;
-    }
-
-    figcaption {
-      margin-top: 10px;
-      font-size: 0.95em;
-      color: #555;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     /* Modal Styling */
@@ -71,34 +51,28 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.75);
+      background-color: rgba(0, 0, 0, 0.7);
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
+      z-index: 9999;
     }
 
     .modal-content {
       background: #fff;
       padding: 30px;
-      border-radius: 12px;
+      border-radius: 10px;
       text-align: center;
-      width: 90%;
       max-width: 500px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-
-    .modal-content h2 {
-      margin-bottom: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
     }
 
     .modal-content input[type="password"] {
-      padding: 10px;
+      padding: 8px;
       width: 80%;
-      margin: 15px 0;
-      border-radius: 6px;
+      margin: 10px 0;
+      border-radius: 5px;
       border: 1px solid #ccc;
-      font-size: 1em;
     }
 
     .modal-content button {
@@ -106,13 +80,13 @@
       background-color: #0077cc;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 5px;
       cursor: pointer;
-      font-size: 1em;
     }
 
-    .modal-content button:hover {
-      background-color: #005fa3;
+    .modal-content button:disabled {
+      background-color: #999;
+      cursor: not-allowed;
     }
 
     .error {
@@ -126,95 +100,116 @@
 
   <div class="modal" id="welcomeModal">
     <div class="modal-content">
-      <h2>Site Under Maintenance</h2>
-      <p>This site is temporarily restricted while it is being used to support an ongoing university Final Year Project. Access is limited to authorized users only.</p>
+      <h2>Notice</h2>
+      <p>This website is temporarily in a limited-access state as it is currently being used to host data and figures for an ongoing Final Year Project.</p>
 
-      <input type="password" id="passwordInput" placeholder="Enter access password" />
+      <label>
+        <input type="checkbox" id="agreeCheckbox" /> I understand and agree to proceed.
+      </label>
+
+      <input type="password" id="passwordInput" placeholder="Enter password" />
       <div class="error" id="errorMsg">Incorrect password. Please try again.</div>
-      <button id="enterBtn">Enter Site</button>
+
+      <button id="agreeBtn" disabled>Enter Site</button>
     </div>
   </div>
 
   <div class="container" id="mainContent" style="display: none;">
     <h1>FYP Data Portal</h1>
-    <p>Welcome! Below is the data collected from Snort and Suricata during my Final Year Project evaluation phase.</p>
+    <p>Welcome! Please find below data collected during my testing phase of the FYP.</p>
 
     <h2>Snort Figures</h2>
     <figure>
-      <img src="img/SnortICMP.png" alt="Snort ICMP Tests Graph">
+      <img src="img/SnortICMP.png" alt="SnortICMPTests">
       <figcaption>Figure 1: Snort ICMP Tests</figcaption>
     </figure>
+
     <figure>
-      <img src="img/portscanidle.png" alt="Port Scan CPU Idle Graph">
+      <img src="img/portscanidle.png" alt="PortScanIdleTests">
       <figcaption>Figure 2: Port Scan %idle</figcaption>
     </figure>
+
     <figure>
-      <img src="img/tcpfloodidle.png" alt="TCP SYN Flood CPU Idle Graph">
+      <img src="img/tcpfloodidle.png" alt="tcpfloodidleTests">
       <figcaption>Figure 3: TCP SYN Flood %idle</figcaption>
     </figure>
+
     <figure>
-      <img src="img/icmpmemused.png" alt="ICMP Memory Usage Graph">
+      <img src="img/icmpmemused.png" alt="icmpmemusedTests">
       <figcaption>Figure 4: ICMP Mem Used</figcaption>
     </figure>
+
     <figure>
-      <img src="img/portscanmemused.png" alt="Port Scan Memory Usage Graph">
+      <img src="img/portscanmemused.png" alt="portscanmemusedTests">
       <figcaption>Figure 5: Port Scan Memory Used</figcaption>
     </figure>
+
     <figure>
-      <img src="img/tcpsynfloodmemused.png" alt="TCP SYN Flood Memory Usage Graph">
+      <img src="img/tcpsynfloodmemused.png" alt="tcpmemusedTests">
       <figcaption>Figure 6: TCP SYN Flood Memory Used</figcaption>
     </figure>
 
-    <h2>Suricata Data Collected</h2>
+    <h3>Suricata Data Collected</h3>
     <figure>
-      <img src="img/suricataicmpidle.png" alt="Suricata ICMP Idle">
+      <img src="img/suricataicmpidle.png" alt="Suricata ICMP">
       <figcaption>Figure 7: Suricata ICMP Alert Summary</figcaption>
     </figure>
+
     <figure>
-      <img src="img/suricataportscan.png" alt="Suricata Port Scan Alerts">
+      <img src="img/suricataportscan.png" alt="Suricata DDoS">
       <figcaption>Figure 8: Suricata Port Scan</figcaption>
     </figure>
+
     <figure>
-      <img src="img/suricatatcpsynidle.png" alt="Suricata TCP SYN Flood Idle">
+      <img src="img/suricatatcpsynidle.png" alt="Suricata DDoS">
       <figcaption>Figure 9: Suricata TCP SYN Flood</figcaption>
     </figure>
+
     <figure>
-      <img src="img/suricatamemusedicmp.png" alt="Suricata ICMP Memory Use">
+      <img src="img/suricatamemusedicmp.png" alt="Suricata DDoS">
       <figcaption>Figure 10: Suricata ICMP Flood</figcaption>
     </figure>
+
     <figure>
-      <img src="img/suricatamemusedportscan.png" alt="Suricata Port Scan Memory">
-      <figcaption>Figure 11: Suricata Memory Used</figcaption>
+      <img src="img/suricatamemusedportscan.png" alt="Suricata DDoS">
+      <figcaption>Figure 11: Suricata Memory Used </figcaption>
     </figure>
+
     <figure>
-      <img src="img/suricatamemusedtcpflood.png" alt="Suricata TCP SYN Memory">
+      <img src="img/suricatamemusedtcpflood.png" alt="Suricata DDoS">
       <figcaption>Figure 12: Suricata TCP SYN Flood</figcaption>
     </figure>
   </div>
 
   <script>
-    const modal = document.getElementById("welcomeModal");
-    const mainContent = document.getElementById("mainContent");
-    const passwordInput = document.getElementById("passwordInput");
-    const errorMsg = document.getElementById("errorMsg");
-    const enterBtn = document.getElementById("enterBtn");
+    (function(){
+      const _0x44c7=["#agreeCheckbox","#agreeBtn","#passwordInput","#errorMsg","#welcomeModal","#mainContent","checked","value","length","disabled","style","display","block"];
+      const checkbox=document.querySelector(_0x44c7[0]);
+      const button=document.querySelector(_0x44c7[1]);
+      const passwordInput=document.querySelector(_0x44c7[2]);
+      const errorMsg=document.querySelector(_0x44c7[3]);
+      const modal=document.querySelector(_0x44c7[4]);
+      const mainContent=document.querySelector(_0x44c7[5]);
+      const correctPassword="fyp2025";
 
-    const correctPassword = "fyp2025"; // Cannot hide this in frontend-only apps.
-
-    enterBtn.addEventListener("click", () => {
-      const userInput = passwordInput.value;
-      if (userInput === correctPassword) {
-        modal.style.display = "none";
-        mainContent.style.display = "block";
-      } else {
-        errorMsg.style.display = "block";
-        passwordInput.value = "";
+      function validate() {
+        button[_0x44c7[9]] = !(checkbox[_0x44c7[6]] && passwordInput[_0x44c7[7]].length > 0);
       }
-    });
 
-    passwordInput.addEventListener("input", () => {
-      errorMsg.style.display = "none";
-    });
+      checkbox.addEventListener('change', validate);
+      passwordInput.addEventListener('input', validate);
+
+      button.addEventListener('click', function () {
+        if (passwordInput[_0x44c7[7]] === correctPassword) {
+          modal[_0x44c7[10]][_0x44c7[11]] = "none";
+          mainContent[_0x44c7[10]][_0x44c7[11]] = _0x44c7[12];
+        } else {
+          errorMsg[_0x44c7[10]][_0x44c7[11]] = _0x44c7[12];
+          passwordInput[_0x44c7[7]] = "";
+          validate();
+        }
+      });
+    })();
   </script>
 </body>
 </html>

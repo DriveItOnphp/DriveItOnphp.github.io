@@ -21,7 +21,7 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    h1, h2, h3 {
+    h1 {
       text-align: center;
       color: #2a2a2a;
     }
@@ -43,22 +43,7 @@
     }
 
     figure {
-      margin: 40px auto;
-      max-width: 600px;
-    }
-
-    figure img {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    figcaption {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 0.95em;
-      color: #555;
+      margin: 30px 0;
     }
 
     /* Modal Styling */
@@ -82,15 +67,10 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.3);
     }
 
-    .modal-content label, .modal-content input {
-      display: block;
-      margin: 15px auto;
-    }
-
     .modal-content input[type="password"] {
       padding: 8px;
       width: 80%;
-      margin-bottom: 15px;
+      margin: 10px 0;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
@@ -118,15 +98,13 @@
 </head>
 <body>
 
-  <!-- Password Modal -->
   <div class="modal" id="welcomeModal">
     <div class="modal-content">
       <h2>Notice</h2>
       <p>This website is currently in an unfinished state as it is being used to host Final Year Project data.</p>
 
       <label>
-        <input type="checkbox" id="agreeCheckbox" />
-        I understand and agree to proceed.
+        <input type="checkbox" id="agreeCheckbox" /> I understand and agree to proceed.
       </label>
 
       <input type="password" id="passwordInput" placeholder="Enter access password" />
@@ -136,12 +114,10 @@
     </div>
   </div>
 
-  <!-- Protected Content -->
   <div class="container" id="mainContent" style="display: none;">
     <h1>FYP Data Portal</h1>
-    <p style="text-align: center;">Welcome! Below is the data and visual analysis collected as part of the Final Year Project.</p>
+    <p>Welcome! Below is the table for your FYP data.</p>
 
-    <!-- Data Table -->
     <table>
       <thead>
         <tr>
@@ -164,87 +140,53 @@
       </tbody>
     </table>
 
-    <!-- Snort Figures -->
     <h2>Snort Figures</h2>
-
     <figure>
-      <img src="img/SnortICMP.png" alt="Snort ICMP Tests">
+      <img src="img/SnortICMP.png" alt="SnortICMPTests" style="max-width: 100%; height: auto;">
       <figcaption>Figure 1: Snort ICMP Tests</figcaption>
     </figure>
-
     <figure>
-      <img src="img/portscanidle.png" alt="Port Scan Idle">
-      <figcaption>Figure 2: Port Scan % Idle</figcaption>
+      <img src="img/portscanidle.png" alt="PortScanIdleTests" style="max-width: 100%; height: auto;">
+      <figcaption>Figure 2: Port Scan %idle</figcaption>
     </figure>
 
-    <figure>
-      <img src="img/tcpfloodidle.png" alt="TCP SYN Flood Idle">
-      <figcaption>Figure 3: TCP SYN Flood % Idle</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/icmpmemused.png" alt="ICMP Memory Used">
-      <figcaption>Figure 4: ICMP Memory Used</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/portscanmemused.png" alt="Port Scan Memory Used">
-      <figcaption>Figure 5: Port Scan Memory Used</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/tcpsynfloodmemused.png" alt="TCP SYN Flood Memory Used">
-      <figcaption>Figure 6: TCP SYN Flood Memory Used</figcaption>
-    </figure>
-
-    <!-- Suricata Figures -->
     <h2>Suricata Figures</h2>
-
     <figure>
-      <img src="img/suricata1.png" alt="Suricata Detection 1">
-      <figcaption>Figure 7: Suricata Detection Sample 1</figcaption>
+      <img src="img/suricata1.png" alt="Suricata Figure 1" style="max-width: 100%; height: auto;">
+      <figcaption>Figure 3: Suricata Example Figure</figcaption>
     </figure>
-
-    <figure>
-      <img src="img/suricata2.png" alt="Suricata Detection 2">
-      <figcaption>Figure 8: Suricata Detection Sample 2</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/suricata3.png" alt="Suricata Detection 3">
-      <figcaption>Figure 9: Suricata Performance Overview</figcaption>
-    </figure>
+    <!-- Add more Suricata figures as needed -->
   </div>
 
-  <!-- JS: Password Check -->
   <script>
-    const checkbox = document.getElementById('agreeCheckbox');
-    const button = document.getElementById('agreeBtn');
-    const passwordInput = document.getElementById('passwordInput');
-    const errorMsg = document.getElementById('errorMsg');
-    const modal = document.getElementById('welcomeModal');
-    const mainContent = document.getElementById('mainContent');
+    (function(){
+      const _0x44c7=["#agreeCheckbox","#agreeBtn","#passwordInput","#errorMsg","#welcomeModal","#mainContent","checked","value","length","disabled","style","display","block"];
+      const checkbox=document.querySelector(_0x44c7[0]);
+      const button=document.querySelector(_0x44c7[1]);
+      const passwordInput=document.querySelector(_0x44c7[2]);
+      const errorMsg=document.querySelector(_0x44c7[3]);
+      const modal=document.querySelector(_0x44c7[4]);
+      const mainContent=document.querySelector(_0x44c7[5]);
+      const correctPassword="fyp2025";
 
-    const correctPassword = "fyp2025"; // 🔐 Change as needed
-
-    function validate() {
-      button.disabled = !(checkbox.checked && passwordInput.value.length > 0);
-    }
-
-    checkbox.addEventListener('change', validate);
-    passwordInput.addEventListener('input', validate);
-
-    button.addEventListener('click', function () {
-      if (passwordInput.value === correctPassword) {
-        modal.style.display = 'none';
-        mainContent.style.display = 'block';
-      } else {
-        errorMsg.style.display = 'block';
-        passwordInput.value = '';
-        validate();
+      function validate() {
+        button[_0x44c7[9]] = !(checkbox[_0x44c7[6]] && passwordInput[_0x44c7[7]].length > 0);
       }
-    });
-  </script>
 
+      checkbox.addEventListener('change', validate);
+      passwordInput.addEventListener('input', validate);
+
+      button.addEventListener('click', function () {
+        if (passwordInput[_0x44c7[7]] === correctPassword) {
+          modal[_0x44c7[10]][_0x44c7[11]] = "none";
+          mainContent[_0x44c7[10]][_0x44c7[11]] = _0x44c7[12];
+        } else {
+          errorMsg[_0x44c7[10]][_0x44c7[11]] = _0x44c7[12];
+          passwordInput[_0x44c7[7]] = "";
+          validate();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

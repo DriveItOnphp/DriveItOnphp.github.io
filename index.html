@@ -67,9 +67,17 @@
       margin-top: 0;
     }
 
-    .modal-content label {
+    .modal-content label, .modal-content input {
       display: block;
-      margin: 20px 0;
+      margin: 15px auto;
+    }
+
+    .modal-content input[type="password"] {
+      padding: 8px;
+      width: 80%;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
 
     .modal-content button {
@@ -85,6 +93,12 @@
       background-color: #999;
       cursor: not-allowed;
     }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -92,11 +106,16 @@
   <div class="modal" id="welcomeModal">
     <div class="modal-content">
       <h2>Notice</h2>
-      <p>This website is currently not in its expected state as it is being used to host Final Year Project (FYP) data.</p>
+      <p>This website is currently in an unfinished state as it is being used to host Final Year Project data.</p>
+
       <label>
         <input type="checkbox" id="agreeCheckbox" />
         I understand and agree to proceed.
       </label>
+
+      <input type="password" id="passwordInput" placeholder="Enter access password" />
+      <div class="error" id="errorMsg">Incorrect password. Please try again.</div>
+
       <button id="agreeBtn" disabled>Enter Site</button>
     </div>
   </div>
@@ -133,16 +152,29 @@
   <script>
     const checkbox = document.getElementById('agreeCheckbox');
     const button = document.getElementById('agreeBtn');
+    const passwordInput = document.getElementById('passwordInput');
+    const errorMsg = document.getElementById('errorMsg');
     const modal = document.getElementById('welcomeModal');
     const mainContent = document.getElementById('mainContent');
 
-    checkbox.addEventListener('change', function () {
-      button.disabled = !this.checked;
-    });
+    const correctPassword = "fyp2025"; // 🔑 You can change this
+
+    function validate() {
+      button.disabled = !(checkbox.checked && passwordInput.value.length > 0);
+    }
+
+    checkbox.addEventListener('change', validate);
+    passwordInput.addEventListener('input', validate);
 
     button.addEventListener('click', function () {
-      modal.style.display = 'none';
-      mainContent.style.display = 'block';
+      if (passwordInput.value === correctPassword) {
+        modal.style.display = 'none';
+        mainContent.style.display = 'block';
+      } else {
+        errorMsg.style.display = 'block';
+        passwordInput.value = '';
+        validate();
+      }
     });
   </script>
 </body>

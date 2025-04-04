@@ -149,12 +149,38 @@
     </table>
   </div>
   
-<h2>Network Topology Diagram</h2>
+<h2>FYP Figures</h2>
+  <h3> Snort Data Collected </h3>
 <figure>
-  <img src="img/SnortICMP.png" alt="SDN Topology" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-  <figcaption style="text-align: center; margin-top: 10px;">Figure 1: SDN Topology used in the FYP</figcaption>
+  <img src="img/SnortICMP.png" alt="SnortICMPTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
+  <figcaption style="text-align: center; margin-top: 10px;">Figure 1: Snort ICMP Tests</figcaption>
+</figure>
+  
+  <figure>
+  <img src="img/portscanidle.png" alt="PortScanIdleTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
+  <figcaption style="text-align: center; margin-top: 10px;">Figure 2: Port Scan %idle </figcaption>
+</figure>
+  
+<figure>
+  <img src="img/tcpfloodidle.png" alt="tcpfloodidleTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
+  <figcaption style="text-align: center; margin-top: 10px;">Figure 3: TCP SYN Flood %idle</figcaption>
 </figure>
 
+  <figure>
+  <img src="img/icmpmemused.png" alt="icmpmemusedTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
+  <figcaption style="text-align: center; margin-top: 10px;">Figure 4: ICMP Mem Used</figcaption>
+</figure>
+
+  <figure>
+  <img src="img/portscanmemused.png" alt="portscanmemusedTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
+  <figcaption style="text-align: center; margin-top: 10px;">Figure 5: Port Scan Memory Used</figcaption>
+</figure>
+
+  <figure>
+  <img src="img/tcpsynfloodmemused.png" alt="tcpmemusedTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
+  <figcaption style="text-align: center; margin-top: 10px;">Figure 6: TCP SYN Flood Memory Used</figcaption>
+</figure>
+  
   <script>
     const checkbox = document.getElementById('agreeCheckbox');
     const button = document.getElementById('agreeBtn');
@@ -163,7 +189,7 @@
     const modal = document.getElementById('welcomeModal');
     const mainContent = document.getElementById('mainContent');
 
-    const correctPassword = "fyp2025"; // 🔑 You can change this
+    const correctPassword = "fyp2025"; 
 
     function validate() {
       button.disabled = !(checkbox.checked && passwordInput.value.length > 0);

@@ -21,7 +21,7 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    h1 {
+    h1, h2, h3 {
       text-align: center;
       color: #2a2a2a;
     }
@@ -40,6 +40,25 @@
 
     th {
       background-color: #f0f0f0;
+    }
+
+    figure {
+      margin: 40px auto;
+      max-width: 600px;
+    }
+
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    figcaption {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: #555;
     }
 
     /* Modal Styling */
@@ -61,10 +80,6 @@
       text-align: center;
       max-width: 500px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-    }
-
-    .modal-content h2 {
-      margin-top: 0;
     }
 
     .modal-content label, .modal-content input {
@@ -103,6 +118,7 @@
 </head>
 <body>
 
+  <!-- Password Modal -->
   <div class="modal" id="welcomeModal">
     <div class="modal-content">
       <h2>Notice</h2>
@@ -120,12 +136,12 @@
     </div>
   </div>
 
+  <!-- Protected Content -->
   <div class="container" id="mainContent" style="display: none;">
     <h1>FYP Data Portal</h1>
+    <p style="text-align: center;">Welcome! Below is the data and visual analysis collected as part of the Final Year Project.</p>
 
-    <p>Welcome! Below is the table for your FYP data.</p>
-
-    <!-- Example Table -->
+    <!-- Data Table -->
     <table>
       <thead>
         <tr>
@@ -147,40 +163,60 @@
         </tr>
       </tbody>
     </table>
+
+    <!-- Snort Figures -->
+    <h2>Snort Figures</h2>
+
+    <figure>
+      <img src="img/SnortICMP.png" alt="Snort ICMP Tests">
+      <figcaption>Figure 1: Snort ICMP Tests</figcaption>
+    </figure>
+
+    <figure>
+      <img src="img/portscanidle.png" alt="Port Scan Idle">
+      <figcaption>Figure 2: Port Scan % Idle</figcaption>
+    </figure>
+
+    <figure>
+      <img src="img/tcpfloodidle.png" alt="TCP SYN Flood Idle">
+      <figcaption>Figure 3: TCP SYN Flood % Idle</figcaption>
+    </figure>
+
+    <figure>
+      <img src="img/icmpmemused.png" alt="ICMP Memory Used">
+      <figcaption>Figure 4: ICMP Memory Used</figcaption>
+    </figure>
+
+    <figure>
+      <img src="img/portscanmemused.png" alt="Port Scan Memory Used">
+      <figcaption>Figure 5: Port Scan Memory Used</figcaption>
+    </figure>
+
+    <figure>
+      <img src="img/tcpsynfloodmemused.png" alt="TCP SYN Flood Memory Used">
+      <figcaption>Figure 6: TCP SYN Flood Memory Used</figcaption>
+    </figure>
+
+    <!-- Suricata Figures -->
+    <h2>Suricata Figures</h2>
+
+    <figure>
+      <img src="img/suricata1.png" alt="Suricata Detection 1">
+      <figcaption>Figure 7: Suricata Detection Sample 1</figcaption>
+    </figure>
+
+    <figure>
+      <img src="img/suricata2.png" alt="Suricata Detection 2">
+      <figcaption>Figure 8: Suricata Detection Sample 2</figcaption>
+    </figure>
+
+    <figure>
+      <img src="img/suricata3.png" alt="Suricata Detection 3">
+      <figcaption>Figure 9: Suricata Performance Overview</figcaption>
+    </figure>
   </div>
-  
-<h2>FYP Figures</h2>
-  <h3> Snort Data Collected </h3>
-<figure>
-  <img src="img/SnortICMP.png" alt="SnortICMPTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-  <figcaption style="text-align: center; margin-top: 10px;">Figure 1: Snort ICMP Tests</figcaption>
-</figure>
-  
-  <figure>
-  <img src="img/portscanidle.png" alt="PortScanIdleTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-  <figcaption style="text-align: center; margin-top: 10px;">Figure 2: Port Scan %idle </figcaption>
-</figure>
-  
-<figure>
-  <img src="img/tcpfloodidle.png" alt="tcpfloodidleTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-  <figcaption style="text-align: center; margin-top: 10px;">Figure 3: TCP SYN Flood %idle</figcaption>
-</figure>
 
-  <figure>
-  <img src="img/icmpmemused.png" alt="icmpmemusedTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-  <figcaption style="text-align: center; margin-top: 10px;">Figure 4: ICMP Mem Used</figcaption>
-</figure>
-
-  <figure>
-  <img src="img/portscanmemused.png" alt="portscanmemusedTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-  <figcaption style="text-align: center; margin-top: 10px;">Figure 5: Port Scan Memory Used</figcaption>
-</figure>
-
-  <figure>
-  <img src="img/tcpsynfloodmemused.png" alt="tcpmemusedTests" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-  <figcaption style="text-align: center; margin-top: 10px;">Figure 6: TCP SYN Flood Memory Used</figcaption>
-</figure>
-  
+  <!-- JS: Password Check -->
   <script>
     const checkbox = document.getElementById('agreeCheckbox');
     const button = document.getElementById('agreeBtn');
@@ -189,7 +225,7 @@
     const modal = document.getElementById('welcomeModal');
     const mainContent = document.getElementById('mainContent');
 
-    const correctPassword = "fyp2025"; 
+    const correctPassword = "fyp2025"; // 🔐 Change as needed
 
     function validate() {
       button.disabled = !(checkbox.checked && passwordInput.value.length > 0);
@@ -209,5 +245,6 @@
       }
     });
   </script>
+
 </body>
 </html>

@@ -101,13 +101,13 @@
   <div class="modal" id="welcomeModal">
     <div class="modal-content">
       <h2>Notice</h2>
-      <p>This website is currently in an unfinished state as it is being used to host Final Year Project data.</p>
+      <p>This website is temporarily in a limited-access state as it is currently being used to host data and figures for an ongoing Final Year Project.</p>
 
       <label>
         <input type="checkbox" id="agreeCheckbox" /> I understand and agree to proceed.
       </label>
 
-      <input type="password" id="passwordInput" placeholder="Enter access password" />
+      <input type="password" id="passwordInput" placeholder="Enter password" />
       <div class="error" id="errorMsg">Incorrect password. Please try again.</div>
 
       <button id="agreeBtn" disabled>Enter Site</button>
@@ -142,20 +142,45 @@
 
     <h2>Snort Figures</h2>
     <figure>
-      <img src="img/SnortICMP.png" alt="SnortICMPTests" style="max-width: 100%; height: auto;">
+      <img src="img/SnortICMP.png" alt="SnortICMPTests">
       <figcaption>Figure 1: Snort ICMP Tests</figcaption>
     </figure>
+
     <figure>
-      <img src="img/portscanidle.png" alt="PortScanIdleTests" style="max-width: 100%; height: auto;">
+      <img src="img/portscanidle.png" alt="PortScanIdleTests">
       <figcaption>Figure 2: Port Scan %idle</figcaption>
     </figure>
 
-    <h2>Suricata Figures</h2>
     <figure>
-      <img src="img/suricata1.png" alt="Suricata Figure 1" style="max-width: 100%; height: auto;">
-      <figcaption>Figure 3: Suricata Example Figure</figcaption>
+      <img src="img/tcpfloodidle.png" alt="tcpfloodidleTests">
+      <figcaption>Figure 3: TCP SYN Flood %idle</figcaption>
     </figure>
-    <!-- Add more Suricata figures as needed -->
+
+    <figure>
+      <img src="img/icmpmemused.png" alt="icmpmemusedTests">
+      <figcaption>Figure 4: ICMP Mem Used</figcaption>
+    </figure>
+
+    <figure>
+      <img src="img/portscanmemused.png" alt="portscanmemusedTests">
+      <figcaption>Figure 5: Port Scan Memory Used</figcaption>
+    </figure>
+
+    <figure>
+      <img src="img/tcpsynfloodmemused.png" alt="tcpmemusedTests">
+      <figcaption>Figure 6: TCP SYN Flood Memory Used</figcaption>
+    </figure>
+
+    <h3>Suricata Data Collected</h3>
+    <figure>
+      <img src="img/suricata_icmp.png" alt="Suricata ICMP">
+      <figcaption>Figure 7: Suricata ICMP Alert Summary</figcaption>
+    </figure>
+
+    <figure>
+      <img src="img/suricata_ddos.png" alt="Suricata DDoS">
+      <figcaption>Figure 8: Suricata TCP SYN Flood Detection</figcaption>
+    </figure>
   </div>
 
   <script>

@@ -6,52 +6,87 @@
   <title>FYP Data Hosting</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: #f5f7fa;
-      color: #333;
+      background: #eef2f7;
+      color: #2c3e50;
     }
 
     .container {
-      max-width: 960px;
+      max-width: 1000px;
       margin: 80px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
       text-align: center;
-      color: #2a2a2a;
+      margin-bottom: 30px;
+      font-size: 2.4em;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    h2, h3 {
+      margin-top: 50px;
+      color: #1a1a1a;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    figure {
+      margin: 20px;
+      text-align: center;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: #666;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .figures-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 30px;
+      margin-top: 20px;
+      font-size: 0.95em;
     }
 
     th, td {
-      padding: 12px;
+      padding: 12px 15px;
       border: 1px solid #ccc;
       text-align: left;
     }
 
     th {
-      background-color: #f0f0f0;
+      background-color: #f8f8f8;
+      font-weight: bold;
     }
 
-    figure {
-      margin: 30px 0;
-    }
-
-    /* Modal Styling */
     .modal {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.75);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -60,19 +95,26 @@
 
     .modal-content {
       background: #fff;
-      padding: 30px;
+      padding: 40px;
       border-radius: 10px;
       text-align: center;
       max-width: 500px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      width: 90%;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
     .modal-content input[type="password"] {
-      padding: 8px;
+      padding: 10px;
       width: 80%;
-      margin: 10px 0;
+      margin: 15px 0;
       border-radius: 5px;
       border: 1px solid #ccc;
+    }
+
+    .modal-content label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.95em;
     }
 
     .modal-content button {
@@ -94,15 +136,26 @@
       font-size: 0.9em;
       display: none;
     }
+
+    @media (max-width: 600px) {
+      .modal-content input[type="password"] {
+        width: 100%;
+      }
+
+      .figures-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Modal for access -->
   <div class="modal" id="welcomeModal">
     <div class="modal-content">
       <h2>Notice</h2>
-      <p>This website is temporarily in a limited-access state as it is currently being used to host data and figures for an ongoing Final Year Project.</p>
-
+      <p>This site hosts data for an active Final Year Project and is currently in limited-access mode.</p>
+      
       <label>
         <input type="checkbox" id="agreeCheckbox" /> I understand and agree to proceed.
       </label>
@@ -114,118 +167,127 @@
     </div>
   </div>
 
+  <!-- Main content -->
   <div class="container" id="mainContent" style="display: none;">
     <h1>FYP Data Portal</h1>
-    <p>Welcome! Please find below data collected during my testing phase of the Final Year Project (FYP).</p>
+    <p>Below is a collection of figures and metrics from the data collection and testing phase.</p>
 
     <h2>Snort Figures</h2>
+    <div class="figures-grid">
+      <figure>
+        <img src="img/SnortICMP.png" alt="Snort ICMP Tests">
+        <figcaption>Figure 1: Snort ICMP Tests</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/portscanidle.png" alt="Port Scan Idle">
+        <figcaption>Figure 2: Port Scan % Idle</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/tcpfloodidle.png" alt="TCP SYN Flood Idle">
+        <figcaption>Figure 3: TCP SYN Flood % Idle</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/icmpmemused.png" alt="ICMP Memory Used">
+        <figcaption>Figure 4: ICMP Memory Used</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/portscanmemused.png" alt="Port Scan Memory Used">
+        <figcaption>Figure 5: Port Scan Memory Used</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/tcpsynfloodmemused.png" alt="TCP SYN Memory Used">
+        <figcaption>Figure 6: TCP SYN Flood Memory Used</figcaption>
+      </figure>
+    </div>
+
+    <h2>Suricata Data Collected</h2>
+    <div class="figures-grid">
+      <figure>
+        <img src="img/suricataicmpidle.png" alt="Suricata ICMP Idle">
+        <figcaption>Figure 7: Suricata ICMP Alert Summary</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/suricataportscan.png" alt="Suricata Port Scan">
+        <figcaption>Figure 8: Suricata Port Scan</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/suricatatcpsynidle.png" alt="Suricata TCP SYN Flood">
+        <figcaption>Figure 9: Suricata TCP SYN Flood</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/suricatamemusedicmp.png" alt="Suricata ICMP Memory">
+        <figcaption>Figure 10: Suricata ICMP Flood Memory</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/suricatamemusedportscan.png" alt="Suricata Port Scan Memory">
+        <figcaption>Figure 11: Suricata Memory Used (Port Scan)</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/suricatamemusedtcpflood.png" alt="Suricata TCP SYN Memory">
+        <figcaption>Figure 12: Suricata TCP SYN Flood Memory Used</figcaption>
+      </figure>
+    </div>
+
+    <h2>Summary Analysis</h2>
+    <div class="figures-grid">
+      <figure>
+        <img src="img/snortandsuricatamean1.png" alt="Snort & Suricata Mean">
+        <figcaption>Figure 13: Snort & Suricata - Mean Comparison</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/snortandsuricatamedian1.png" alt="Median Comparison">
+        <figcaption>Figure 14: Suricata & Snort - Median Comparison</figcaption>
+      </figure>
+    </div>
+
+    <h2>Statistical Tables</h2>
     <figure>
-      <img src="img/SnortICMP.png" alt="SnortICMPTests">
-      <figcaption>Figure 1: Snort ICMP Tests</figcaption>
+      <img src="img/statana3.png" alt="Snort Stats Table">
+      <figcaption>Figure 15: Snort Statistical Analysis Table</figcaption>
     </figure>
 
     <figure>
-      <img src="img/portscanidle.png" alt="PortScanIdleTests">
-      <figcaption>Figure 2: Port Scan %idle</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/tcpfloodidle.png" alt="tcpfloodidleTests">
-      <figcaption>Figure 3: TCP SYN Flood %idle</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/icmpmemused.png" alt="icmpmemusedTests">
-      <figcaption>Figure 4: ICMP Mem Used</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/portscanmemused.png" alt="portscanmemusedTests">
-      <figcaption>Figure 5: Port Scan Memory Used</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/tcpsynfloodmemused.png" alt="tcpmemusedTests">
-      <figcaption>Figure 6: TCP SYN Flood Memory Used</figcaption>
-    </figure>
-
-    <h3>Suricata Data Collected</h3>
-    <figure>
-      <img src="img/suricataicmpidle.png" alt="Suricata ICMP">
-      <figcaption>Figure 7: Suricata ICMP Alert Summary</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/suricataportscan.png" alt="Suricata DDoS">
-      <figcaption>Figure 8: Suricata Port Scan</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/suricatatcpsynidle.png" alt="Suricata DDoS">
-      <figcaption>Figure 9: Suricata TCP SYN Flood</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/suricatamemusedicmp.png" alt="Suricata DDoS">
-      <figcaption>Figure 10: Suricata ICMP Flood</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/suricatamemusedportscan.png" alt="Suricata DDoS">
-      <figcaption>Figure 11: Suricata Memory Used </figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/suricatamemusedtcpflood.png" alt="Suricata DDoS">
-      <figcaption>Figure 12: Suricata TCP SYN Flood</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/snortandsuricatamean1.png" alt="Snort & Suricata Mean">
-      <figcaption>Figure 13: Snort & Suricata Mean</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/snortandsuricatamedian1.png" alt="Suricata & Snort Median">
-      <figcaption>Figure 14: Suricata & Snort Median</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/statana3.png" alt="Suricata & Snort">
-      <figcaption>Figure 15: Snort Statisical Analysis</figcaption>
-    </figure>
-
-    <figure>
-      <img src="img/statana4.png" alt="Suricata & Snort">
-      <figcaption>Figure 14: Suricata Statistical Analysis</figcaption>
+      <img src="img/statana4.png" alt="Suricata Stats Table">
+      <figcaption>Figure 16: Suricata Statistical Analysis Table</figcaption>
     </figure>
   </div>
 
+  <!-- Modal Logic -->
   <script>
     (function(){
-      const _0x44c7=["#agreeCheckbox","#agreeBtn","#passwordInput","#errorMsg","#welcomeModal","#mainContent","checked","value","length","disabled","style","display","block"];
-      const checkbox=document.querySelector(_0x44c7[0]);
-      const button=document.querySelector(_0x44c7[1]);
-      const passwordInput=document.querySelector(_0x44c7[2]);
-      const errorMsg=document.querySelector(_0x44c7[3]);
-      const modal=document.querySelector(_0x44c7[4]);
-      const mainContent=document.querySelector(_0x44c7[5]);
-      const correctPassword="fyp2025";
+      const checkbox = document.querySelector("#agreeCheckbox");
+      const button = document.querySelector("#agreeBtn");
+      const passwordInput = document.querySelector("#passwordInput");
+      const errorMsg = document.querySelector("#errorMsg");
+      const modal = document.querySelector("#welcomeModal");
+      const mainContent = document.querySelector("#mainContent");
+      const correctPassword = "fyp2025";
 
       function validate() {
-        button[_0x44c7[9]] = !(checkbox[_0x44c7[6]] && passwordInput[_0x44c7[7]].length > 0);
+        button.disabled = !(checkbox.checked && passwordInput.value.length > 0);
       }
 
       checkbox.addEventListener('change', validate);
       passwordInput.addEventListener('input', validate);
 
       button.addEventListener('click', function () {
-        if (passwordInput[_0x44c7[7]] === correctPassword) {
-          modal[_0x44c7[10]][_0x44c7[11]] = "none";
-          mainContent[_0x44c7[10]][_0x44c7[11]] = _0x44c7[12];
+        if (passwordInput.value === correctPassword) {
+          modal.style.display = "none";
+          mainContent.style.display = "block";
         } else {
-          errorMsg[_0x44c7[10]][_0x44c7[11]] = _0x44c7[12];
-          passwordInput[_0x44c7[7]] = "";
+          errorMsg.style.display = "block";
+          passwordInput.value = "";
           validate();
         }
       });
